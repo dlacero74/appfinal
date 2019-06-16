@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'guardar-foto', loadChildren: './guardar-foto/guardar-foto.module#GuardarFotoPageModule' },
   { path: 'id-cedula', loadChildren: './id-cedula/id-cedula.module#IdCedulaPageModule' },
   { path: 'seguro-guardar-foto', loadChildren: './seguro-guardar-foto/seguro-guardar-foto.module#SeguroGuardarFotoPageModule' },
-  { path: 'registro-cedula', loadChildren: './registro-cedula/registro-cedula.module#RegistroCedulaPageModule' },
+  { path: 'registro-cedula', loadChildren: './registro-cedula/registro-cedula.module#RegistroCedulaPageModule' },  { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
+
 ];
 @NgModule({
   imports: [
