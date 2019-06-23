@@ -3,15 +3,14 @@ ion-content{
 
    
 }
-
-h1{
-    color: #ffffff;
-    font-size: 30px;
-    background:rgba(224, 220, 220, 0.281);
+h1 {
+    color:#ffffff;
+    font-size:25px;
     border: 2px solid rgba(202, 44, 44, 0);
-    border-radius:40px; 
-    padding: 0%;
+    border-radius:10px;
     margin:5%;
+    padding: 4%;
+    background:rgba(255, 255, 255, 0.281);  
 }
 h2 {
     color:#ffffff;
@@ -24,5 +23,5 @@ h2 {
 }
 .botonSig {
     margin-left:60%;
-    margin-top:8%;
+    margin-top:1%;
 }
