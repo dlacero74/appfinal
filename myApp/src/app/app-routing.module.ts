@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'menu-ini', loadChildren: './menu-ini/menu-ini.module#MenuIniPageModule' },  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
   { path: 'denuncia', loadChildren: './denuncia/denuncia.module#DenunciaPageModule' },
   { path: 'descripcion-denuncia', loadChildren: './descripcion-denuncia/descripcion-denuncia.module#DescripcionDenunciaPageModule' },
+  { path: 'maps', loadChildren: './maps/maps.module#MapsPageModule' },
 
 
 ];

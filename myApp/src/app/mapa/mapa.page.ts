@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController, NavController, Platform,LoadingController } from '@ionic/angular';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { AlertController, ModalController, NavController, Platform, LoadingController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import {
   GoogleMaps,
@@ -14,8 +14,7 @@ import {
   ILatLng,
   LatLng
 } from '@ionic-native/google-maps';
- import { ActionSheetController } from '@ionic/angular'
- declare var google: any;
+
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.page.html',
@@ -24,19 +23,20 @@ import {
 
 export class MapaPage implements OnInit {
   
-  map: GoogleMaps;
+  map: GoogleMap;
   loading: any;
+  actionSheetController: any;
   
   constructor(
-    public actionSheetController: ActionSheetController,
+    public alertController: AlertController,
+    public modalController: ModalController,
+    public zone: NgZone,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
     private platform: Platform,
-    private loadingCtrl: LoadingController,
-    public nav:NavController,
-    public geolocation: Geolocation,
+    private navCtrl: NavController,
     private router: Router
   ) { }
-
-  
 
   async ngOnInit() {
     await this.platform.ready();
@@ -65,46 +65,56 @@ export class MapaPage implements OnInit {
   }
 //Ubicarme
 async onButtonClick() {
-// this.map.clear();
+  this.map.clear();
 
-// this.loading = await this.loadingCtrl.create({
-//   message: 'Please wait...'
-// });
-// await this.loading.present();
+  this.loading = await this.loadingCtrl.create({
+    message: 'Please wait...'
+  });
+  await this.loading.present();
 
-// // Get the location of you
-// this.map.getMyLocation().then((location: MyLocation) => {
-//   this.loading.dismiss();
-//   console.log(JSON.stringify(location, null ,2));
+  // Get the location of you
+  this.map.getMyLocation().then((location: MyLocation) => {
+    this.loading.dismiss();
+    console.log(JSON.stringify(location, null ,2));
 
-//   // Move the map camera to the location with animation
-//   this.map.animateCamera({
-//     target: location.latLng,
-//     zoom: 17,
-//     tilt: 30
-//   });
+    // Move the map camera to the location with animation
+    this.map.animateCamera({
+      target: location.latLng,
+      zoom: 17,
+      tilt: 30
+    });
 
-//   // add a marker
-//   let marker: Marker = this.map.addMarkerSync({
-//     title: '@ionic-native/google-maps plugin!',
-//     snippet: 'This plugin is awesome!',
-//     position: location.latLng,
-//     draggable: true,
-//     animation: GoogleMapsAnimation.BOUNCE
-//   });
+    // add a marker
+    let marker: Marker = this.map.addMarkerSync({
+      title: '@ionic-native/google-maps plugin!',
+      snippet: 'This plugin is awesome!',
+      position: location.latLng,
+      draggable: true,
+      animation: GoogleMapsAnimation.BOUNCE
+    });
 
-//   // show the infoWindow
-//   marker.showInfoWindow();
+    // show the infoWindow
+    marker.showInfoWindow();
 
-//   /*// If clicked it, display the alert
-//   marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-//     this.showToast('clicked!');
-//   });*/
-// })
-// .catch(err => {
-//   this.loading.dismiss();
-//   this.showToast(err.error_message);
-//});
+    /*// If clicked it, display the alert
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      this.showToast('clicked!');
+    });*/
+  })
+  .catch(err => {
+    this.loading.dismiss();
+    this.showToast(err.error_message);
+  });
+}
+
+async showToast(message: string) {
+  let toast = await this.toastCtrl.create({
+    message: message,
+    duration: 2000,
+    position: 'middle'
+  });
+
+  toast.present();
 }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -117,32 +127,32 @@ async onButtonClick() {
         role: 'destructive',
         icon: 'menu',
         handler: () => {
-         this.nav.navigateForward("/denuncia");
+         this.navCtrl.navigateForward("/denuncia");
         }
       }, {
         text: 'Share',
         icon: 'share',
         handler: () => {
-          this.nav.navigateForward("/menu-ini");
+          this.navCtrl.navigateForward("/menu-ini");
         }
       }, {
         text: 'Play (open modal)',
         icon: 'arrow-dropright-circle',
         handler: () => {
-          this.nav.navigateForward("/menu-ini");
+          this.navCtrl.navigateForward("/menu-ini");
         }
       }, {
         text: 'Favorite',
         icon: 'heart',
         handler: () => {
-          this.nav.navigateForward("/menu-ini");
+          this.navCtrl.navigateForward("/menu-ini");
         }
       }, {
         text: 'Cancel',
         icon: 'close',
         role: 'cancel',
         handler: () => {
-          this.nav.navigateForward("/menu-ini");
+          this.navCtrl.navigateForward("/menu-ini");
         }
       }]
     });
