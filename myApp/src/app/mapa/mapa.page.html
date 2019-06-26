@@ -1,16 +1,25 @@
 <ion-content >
-
-  <ion-label>fgfgfgfgfg </ion-label>
+  
+      <!-- fab placed to the top end -->
+      <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="presentActionSheet()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    
+          
+  
 
     <div id="map_canvas">
         
   
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click)="onButtonClick()" size="small" >
-    <ion-fab-button>
-      <ion-icon name="locate" ></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  
     </div>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed"  size="small" >
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
 </ion-content>
     

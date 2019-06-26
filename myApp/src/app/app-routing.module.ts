@@ -18,7 +18,10 @@ const routes: Routes = [
   { path: 'registro-exitoso', loadChildren: './registro-exitoso/registro-exitoso.module#RegistroExitosoPageModule' },
   { path: 'camara-inicio', loadChildren: './camara-inicio/camara-inicio.module#CamaraInicioPageModule' },
   { path: 'mapa', loadChildren: './mapa/mapa.module#MapaPageModule' },
-  { path: 'menu-ini', loadChildren: './menu-ini/menu-ini.module#MenuIniPageModule' },
+  { path: 'menu-ini', loadChildren: './menu-ini/menu-ini.module#MenuIniPageModule' },  { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
+  { path: 'denuncia', loadChildren: './denuncia/denuncia.module#DenunciaPageModule' },
+  { path: 'descripcion-denuncia', loadChildren: './descripcion-denuncia/descripcion-denuncia.module#DescripcionDenunciaPageModule' },
+
 
 ];
 @NgModule({
