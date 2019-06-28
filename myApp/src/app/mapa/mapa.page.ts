@@ -117,44 +117,85 @@ async showToast(message: string) {
   toast.present();
 }
   async presentActionSheet() {
+    debugger;
     const actionSheet = await this.actionSheetController.create({
       header: 'menu',
       cssClass:"menu",
       buttons:
-   
-       [{
-        text: 'denuncia',
-        role: 'destructive',
-        icon: 'menu',
-        handler: () => {
-         this.navCtrl.navigateForward("/denuncia");
+      // [
+      //   {
+      //     text: 'denuncia',
+      //     role: 'destructive',
+      //     icon: 'menu',
+      //     handler: () => {
+      //       this.navCtrl.navigateForward("/denuncia");
+      //     }
+      //   }, 
+      //   {
+      //     text: 'perfil',
+      //     icon: 'share',
+      //     handler: () => {
+      //       this.navCtrl.navigateForward("/menu-ini");
+      //     }
+      //   }, 
+      //   {
+      //     text: 'perfil',
+      //     icon: 'menu',
+      //     handler: () => {
+      //       this.navCtrl.navigateForward("/menu-ini");
+      //     }
+      //   }, 
+      //   {
+      //     text: 'Favorite',
+      //     icon: 'heart',
+      //     handler: () => {
+      //       this.navCtrl.navigateForward("/menu-ini");
+      //     }
+      //   }, 
+      //   {
+      //     text: 'Cancel',
+      //     icon: 'close',
+      //     role: 'cancel',
+      //     handler: () => {
+      //       this.navCtrl.navigateForward("/menu-ini");
+      //     }
+      //   }
+      // ]
+      [
+        {
+          text: 'Delete',
+          role: 'destructive',
+          icon: 'trash',
+          handler: () => {
+            console.log('Delete clicked');
+          }
+        }, {
+          text: 'Share',
+          icon: 'share',
+          handler: () => {
+            console.log('Share clicked');
+          }
+        }, {
+          text: 'Play (open modal)',
+          icon: 'arrow-dropright-circle',
+          handler: () => {
+            console.log('Play clicked');
+          }
+        }, {
+          text: 'Favorite',
+          icon: 'heart',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }, {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
         }
-      }, {
-        text: 'Share',
-        icon: 'share',
-        handler: () => {
-          this.navCtrl.navigateForward("/menu-ini");
-        }
-      }, {
-        text: 'Play (open modal)',
-        icon: 'arrow-dropright-circle',
-        handler: () => {
-          this.navCtrl.navigateForward("/menu-ini");
-        }
-      }, {
-        text: 'Favorite',
-        icon: 'heart',
-        handler: () => {
-          this.navCtrl.navigateForward("/menu-ini");
-        }
-      }, {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-          this.navCtrl.navigateForward("/menu-ini");
-        }
-      }]
+      ]
     });
     await actionSheet.present();
   }

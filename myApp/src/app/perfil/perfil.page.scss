@@ -1,0 +1,28 @@
+ion-content{
+    --background: url(../../assets/img/fondo-2.png);
+
+   
+}
+
+h1{
+    color: #ffffff;
+    font-size: 30px;
+    background:rgb(224, 220, 220);
+    border: 2px solid rgba(202, 44, 44, 0);
+    border-radius:40px; 
+    padding: 0%;
+    margin:15%;
+}
+h2 {
+    color:#ffffff;
+    font-size:15px;
+    border: 0px solid rgba(202, 44, 44, 0);
+    border-radius:10px;
+    margin:15%;
+    padding:6%;
+    background:rgba(255, 255, 255, 0.281);  
+}
+.botonSig {
+    margin-left:60%;
+    margin-top:10%;
+}

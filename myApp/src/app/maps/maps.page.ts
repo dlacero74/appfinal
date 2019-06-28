@@ -125,37 +125,19 @@ export class MapsPage implements OnInit {
         buttons:
      
          [{
-          text: 'denuncia',
+          text: 'DENUNCIA',
           role: 'destructive',
           icon: 'menu',
           handler: () => {
            this.navCtrl.navigateForward("/denuncia");
           }
         }, {
-          text: 'Share',
+          text: 'PERFIL',
           icon: 'share',
           handler: () => {
-            this.navCtrl.navigateForward("/menu-ini");
+            this.navCtrl.navigateForward("/perfil");
           }
-        }, {
-          text: 'Play (open modal)',
-          icon: 'arrow-dropright-circle',
-          handler: () => {
-            this.navCtrl.navigateForward("/menu-ini");
-          }
-        }, {
-          text: 'Favorite',
-          icon: 'heart',
-          handler: () => {
-            this.navCtrl.navigateForward("/menu-ini");
-          }
-        }, {
-          text: 'Cancel',
-          icon: 'close',
-          role: 'cancel',
-          handler: () => {
-            this.navCtrl.navigateForward("/menu-ini");
-          }
+         
         }]
       });
       await actionSheet.present();

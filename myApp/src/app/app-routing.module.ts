@@ -22,6 +22,9 @@ const routes: Routes = [
   { path: 'denuncia', loadChildren: './denuncia/denuncia.module#DenunciaPageModule' },
   { path: 'descripcion-denuncia', loadChildren: './descripcion-denuncia/descripcion-denuncia.module#DescripcionDenunciaPageModule' },
   { path: 'maps', loadChildren: './maps/maps.module#MapsPageModule' },
+  { path: 'descripcion', loadChildren: './descripcion/descripcion.module#DescripcionPageModule' },
+  { path: 'exito-denuncia', loadChildren: './exito-denuncia/exito-denuncia.module#ExitoDenunciaPageModule' },
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
 
 
 ];
